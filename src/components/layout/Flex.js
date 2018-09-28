@@ -25,7 +25,7 @@ export const Flex = (props) => {
         children,
         grow = 0,
         shrink = 1,
-        basis = null,
+        basis = "auto",
         direction = "column",
         wrap = "nowrap",
         justifyContent = defaultJustifyContent,
@@ -35,26 +35,21 @@ export const Flex = (props) => {
         ...otherProps
     } = props;
 
+    const fgrow = typeof grow === "boolean" ? 1 : grow;
+    const fshrink = typeof shrink === "boolean" ? 1 : shrink;
+    const fbasis = (typeof basis === "number" && basis !== 0) ? `${basis}px` : basis;
+
+    let flexShorthand = `${fgrow} ${fshrink} ${fbasis}`;
+
     const styleBuilder = {
         flexDirection: direction,
         flexShrink: shrink,
         flexWrap: wrap,
         display: "flex",
         justifyContent,
-        alignItems
+        alignItems,
+        flex: flexShorthand
     };
-
-    if(basis != null) {
-        styleBuilder.flexBasis = basis;
-    }
-
-    if (typeof grow === 'number') {
-        styleBuilder.flexGrow = grow;
-    } else if (typeof grow === 'boolean' && grow) {
-        styleBuilder.flexGrow = 1;
-    } else {
-        styleBuilder.flexGrow = 0;
-    }
 
     if (scroll) {
         if (scroll === "x") {

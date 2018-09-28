@@ -1,8 +1,6 @@
 import React, { PureComponent, createRef } from 'react'
 import { compose, withProps } from "recompose";
 import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
-import { MarkerClusterer } from "react-google-maps/lib/components/addons/MarkerClusterer";
-import { Flex } from '../layout/Flex';
 import MapContents from './contents/MapContents';
 import { actions as mapActions } from "../../store/map/actions";
 import { bindActionCreators } from 'redux';
@@ -48,12 +46,15 @@ class PropertyMap extends PureComponent {
                 onZoomChanged={this.onZoomChanged}
                 options={options}
             >
-                <MarkerClusterer>
-                    <MapContents />
-                </MarkerClusterer>
+                <MapContents />
             </GoogleMap>
         );
     }
+}
+
+const containerStyle = {
+    display: "flex",
+    flexGrow: 1, flexShrink: 0, flexBasis: 0
 }
 
 const mapState = ({ map }) => map;
@@ -67,7 +68,7 @@ export default compose(
     withProps({
         googleMapURL: gmapsApiUrl,
         loadingElement: <div>Loading...</div>,
-        containerElement: <Flex grow basis={0} />,
+        containerElement: <div style={containerStyle} />,
         mapElement: <div style={{ flex: "1 1 auto" }} />
     }),
     withScriptjs,

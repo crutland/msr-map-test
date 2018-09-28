@@ -9,8 +9,7 @@ export const actionTypes = {
     selectProperty: ns`select_property`,
     getMetroProperties: ns`get_metro_properties`,
     getMetroPropertiesComplete: ns`get_metro_properties_complete`,
-    clearMetroProperties: ns`clear_metro_properties`,
-    setActiveInfoWindowTab: ns`set_active_info_window_tab`
+    clearMetroProperties: ns`clear_metro_properties`
 };
 
 const getMetros = action(actionTypes.getMetros);
@@ -20,7 +19,6 @@ const selectProperty = (property) => createAction(actionTypes.selectProperty, pr
 const getMetroProperties = (metro) => createAction(actionTypes.getMetroProperties, metro);
 const getMetroPropertiesComplete = (properties) => createAction(actionTypes.getMetroPropertiesComplete, properties);
 const clearMetroProperties = action(actionTypes.clearMetroProperties);
-const setActiveInfoWindowTab = (activeTab) => createAction(actionTypes.setActiveInfoWindowTab, activeTab);
 
 export const actions = {
     getMetros,
@@ -29,6 +27,5 @@ export const actions = {
     selectProperty,
     getMetroProperties,
     getMetroPropertiesComplete,
-    clearMetroProperties,
-    setActiveInfoWindowTab
+    clearMetroProperties
 };

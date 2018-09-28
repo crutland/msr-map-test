@@ -4,8 +4,7 @@ export const defaultState = {
     metros: null,
     selectedMetro: null,
     properties: null,
-    selectedProperty: null,
-    activeInfoWindowTab: 0
+    selectedProperty: null
 };
 
 export const reducer = (state = defaultState, { type, payload }) => {
@@ -24,9 +23,6 @@ export const reducer = (state = defaultState, { type, payload }) => {
 
         case actionTypes.selectProperty:
             return { ...state, selectedProperty: payload };
-
-        case actionTypes.setActiveInfoWindowTab:
-            return { ...state, activeInfoWindowTab: payload };
 
         default:
             return state;

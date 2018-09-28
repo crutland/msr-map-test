@@ -1,6 +1,6 @@
 import React from 'react';
 import { Marker } from "react-google-maps";
-
+import { MarkerClusterer } from "react-google-maps/lib/components/addons/MarkerClusterer";
 import HomeIcon from "../../../assets/icons/home.svg";
 
 console.log("Home Icon", HomeIcon);
@@ -20,7 +20,11 @@ const PropertiesContents = ({ properties, selectProperty }) => {
     const propertyMarkers = properties.map((property, i) => (
         <PropertyMarker property={property} key={i} onClick={() => selectProperty(property)} />
     ));
-    return propertyMarkers;
+    return (
+        <MarkerClusterer>
+            {propertyMarkers}
+        </MarkerClusterer>
+    );
 };
 
 export default PropertiesContents;
