@@ -1,17 +1,25 @@
-import { createAction, action } from "../action";
+import { createAction, action, createNamespace } from "../action";
+
+const ns = createNamespace("ui");
 
 export const actionTypes = {
-    setTheme: "@@ui/set_theme",
-    openDrawer: "@@ui/open_drawer",
-    closeDrawer: "@@ui/close_drawer"
+    setTheme: ns`set_theme`,
+    openDrawer: ns`open_drawer`,
+    closeDrawer: ns`close_drawer`,
+    setLoading: ns`set_loading`,
+    setShowInfoPanel: ns`set_show_info_panel`
 };
 
-export const openDrawer = action(actionTypes.openDrawer);
-export const closeDrawer = action(actionTypes.closeDrawer);
-export const setTheme = (theme) => createAction(actionTypes.setTheme, theme);
+const openDrawer = action(actionTypes.openDrawer);
+const closeDrawer = action(actionTypes.closeDrawer);
+const setTheme = (theme) => createAction(actionTypes.setTheme, theme);
+const setLoading = (loading) => createAction(actionTypes.setLoading, loading);
+const setShowInfoPanel = (show) => createAction(actionTypes.setShowInfoPanel, show);
 
 export const actions = {
     openDrawer,
     closeDrawer,
-    setTheme
+    setTheme,
+    setLoading,
+    setShowInfoPanel
 };

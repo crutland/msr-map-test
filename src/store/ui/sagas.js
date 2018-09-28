@@ -2,9 +2,7 @@ import { takeLatest } from "redux-saga/effects";
 import { actionTypes } from "./actions";
 import { saveTheme } from "../../helpers/storage";
 
-
-function* watchSetTheme({ type, payload }) {
-    console.log(`type: ${type}, payload: ${payload}`);
+function* watchSetTheme({ payload }) {
     yield Promise.resolve(saveTheme(payload));
 }
 

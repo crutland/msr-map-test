@@ -7,10 +7,14 @@
     "@material-ui/icons": "^3.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
+    "react-swipeable-views": "^0.13.0",
+    "recompose": "^0.30.0",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
+    "throttle-debounce": "^2.0.1",
     "typeface-roboto": "^0.0.54"
   },
   "scripts": {
@@ -20,8 +24,13 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/google-map-react": "^0.23.9",
+    "@types/googlemaps": "^3.30.13",
     "@types/react": "^16.4.14",
     "@types/react-redux": "^6.0.9",
-    "@types/redux-saga": "^0.10.5"
-  }
+    "@types/recompose": "^0.26.5",
+    "@types/redux-saga": "^0.10.5",
+    "@types/throttle-debounce": "^1.1.0"
+  },
+  "proxy": "https://localhost:5001"
 }

@@ -3,8 +3,12 @@ export function createAction(type, payload = null) {
     return { type, payload }
 }
 
-export function action(type, payload) {
+export function action(type) {
     return function() {
-        return createAction(type, payload);
+        return createAction(type);
     }
+}
+
+export function createNamespace(ns) {
+    return (strings) => `@@${ns}/${strings.join('')}`;
 }
